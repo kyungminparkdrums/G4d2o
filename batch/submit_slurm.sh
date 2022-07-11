@@ -26,7 +26,8 @@ source /usr/local/slurm/env_to_slurm.sh
 source ${USER_DIR}/.bashrc
 cd /scratch/slurm_${SLURM_JOB_ID}
 
-LOG_DIR="${JOB_SUBMIT_DIR}/slurm-${SLURM_JOB_ID}"
+DATE=$(date '+%m-%d-%Y')
+LOG_DIR="${JOB_SUBMIT_DIR}/slurm-${SLURM_JOB_ID}-${DATE}"
 mkdir -p ${LOG_DIR}
 
 
@@ -145,7 +146,7 @@ stageout()
   echo ' ############ START: STAGE OUT #############'
   echo ' '
   cd ${WORKDIR}
-  #ls
+  ls
 
   ## Copy output rootfile
   rootprefix="Sim_D2ODetector"
