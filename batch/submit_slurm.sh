@@ -16,7 +16,7 @@ OUT_DIR=$3
 
 
 # Setting up some directories
-mkdir -p ${OUT_DIR}
+mkdir -p "${G4D2O_DIR}/${OUT_DIR}"
 USER_DIR="/home/"${USER}
 JOB_SUBMIT_DIR=$(pwd)
 
@@ -152,8 +152,8 @@ stageout()
   rootprefix="Sim_D2ODetector"
   rootfile="${rootprefix}${RUNNUM}.root"
   #${SCP} ${rootfile} ${SERVPERMDIR}/${OUT_DIR}${rootfile}
-  mv ${rootfile} ${OUT_DIR}/${rootfile}
-  echo "Output file: ${OUT_DIR}/${rootfile}"
+  mv "${OUT_DIR}/${rootfile}" "${SERVPERMDIR}/${OUT_DIR}/${rootfile}"
+  echo "Output file: ${SERVPERMDIR}/${OUT_DIR}/${rootfile}"
 
   mv "${JOB_SUBMIT_DIR}/slurm-${SLURM_JOB_ID}.out" ${LOG_DIR}
   echo ' '

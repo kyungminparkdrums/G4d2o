@@ -34,9 +34,9 @@ for line in lines:
     elif 'outputDir' in line[1]:
         beamDic['outDir'] = line[0]
 
-# if the path is not absolute path, make it absolute path
-if not G4d2oDir in beamDic['outDir']:
-    beamDic['outDir'] = G4d2oDir + beamDic['outDir'] + '/'
+# if the path is not absolute path, make it absolute path --> UPDATE: DO NOT USE THIS
+#if not G4d2oDir in beamDic['outDir']:
+#    beamDic['outDir'] = G4d2oDir + beamDic['outDir'] + '/'
 
 # Run submit_slurm.sh script
 runCode = 'sbatch submit_slurm.sh {nRun} {nEvents} {outDir} {simDir}'.format(**beamDic)
@@ -45,4 +45,4 @@ os.system(runCode)
 print('\nSubmitted job for G4d2o simulation. Simulation settings defined in {}'.format(beamOnFile))
 print('\nRun number: {}'.format(beamDic['nRun']))
 print('Number of events: {}'.format(beamDic['nEvents']))
-print('Simulation output file directory: {}\n'.format(beamDic['outDir']))
+print('Simulation output file directory: {}\n'.format(beamDic['simDir']+beamDic['outDir']))
