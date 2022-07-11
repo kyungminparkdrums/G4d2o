@@ -17,4 +17,5 @@ This script submits batch job with slurm. It reads `beamOn.dat` file from `G4d2o
 2. Change `line 15` of this script: change `G4d2oDir` variable as necessary.
 3. At `ernest` node, run this script by `python3 submit_jobs.py`
 
-
+**Important**
+When changing the output file directory from `beamOn.dat` from **Step 1**, please use the path relative to `G4d2o/` directory. For example, use `./data/` instead of `/home/kyungmip/G4d2o/data/`
