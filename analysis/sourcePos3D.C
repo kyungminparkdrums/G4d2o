@@ -28,6 +28,7 @@ void sourcePos3D(){
         double nPE = ev->numHits;   // number of PE's seen by the detector, dimensionless
         if (nPE > 0) {
             if (vol0 == 1) D2O_source->Fill(posInitial.x(), posInitial.y(), posInitial.z()); 
+	    else if (vol0 == 2) H2O_source->Fill(posInitial.x(), posInitial.y(), posInitial.z()); 
        }
     }
 
